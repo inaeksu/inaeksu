@@ -1,0 +1,58 @@
+<div class="form">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'article-form',
+	'enableAjaxValidation'=>false,
+	)); ?>
+
+	<?php echo $form->errorSummary($model); ?>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'title'); ?>
+		<br>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->error($model,'title'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'text'); ?>
+		<?php
+		Yii::import('ext.imperavi-redactor-widget-master.ImperaviRedactorWidget');
+		$this->widget('ImperaviRedactorWidget', array(
+		    'model' => $model,
+		    'attribute' => 'text',
+
+		    'plugins' => array(
+        		'fullscreen' => array(
+            		'js' => array('fullscreen.js'),
+            	),
+       		 ),
+
+		    'htmlOptions' => array('style' => 'height:300px;'),
+
+		    'options' => array(
+		        'lang' => 'ru',
+		        'toolbar' => true,
+		        'iframe' => true,
+		        'imageUpload' => Yii::app()->params['site_url'].'/admin/file/uploadimg',
+		        'fileUpload' => Yii::app()->params['site_url'].'/admin/file/uploadfile',
+		    ),
+		));
+		?>
+		<?php echo $form->error($model,'text'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'category_id'); ?>
+		<br>
+		<?php echo $form->dropDownList($model,'category_id',Category::all()); ?>
+		<?php echo $form->error($model,'category_id'); ?>
+	</div>
+
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Добавить' : 'Сохранить'); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+</div>

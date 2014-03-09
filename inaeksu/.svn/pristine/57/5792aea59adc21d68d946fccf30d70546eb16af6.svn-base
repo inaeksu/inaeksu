@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ua" xml:lang="ua" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/app/front/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/front/css/style.css" type="text/css">
+    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/fresco/fresco.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/app/front/css/fresco/fresco.css" />
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/coin-slider.js"></script>
+    <meta name="google-translate-customization" content="623d60a1eaf0e3bf-f9f2d51f02db6e1e-g1cf1510c51a4a71f-13"></meta>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/main.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/libs/jquery.cookie.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="toppanel">
+        <div id="wrapper">
+            <!--<div id="userpanel">
+				<select id="language-picker">
+					<option id="lng-ua" value="ua">Українська</option>
+					<option id="lng-rus" value="rus">Русский</option>
+					<option id="lng-en" value="en">English</option>
+				</select>
+            </div>       -->
+            <div id="userpanel">
+                <ul id="menuLng">
+                    <li><a id="lng-current">Українська</a>
+                        <ul id="menuLngItems">
+                            <li id="lng-ua" data-lng="ua"><a href="javascript:void(0)">Українська</a></li>
+                            <li id="lng-rus" data-lng="rus"><a href="javascript:void(0)">Русский</a></li>
+                            <li id="lng-en" data-lng="en"><a href="javascript:void(0)">English</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div id="headerblock">
+        <div id="wrapper">
+            <div id="logoLeft">
+                <a href="/"><img src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/images/logoPic.png" /></a>
+            </div>
+            <div id="logoMidd">
+                <p><?php echo Localization::getText('Інститут Автоматики, Електроніки та Комп\'ютерних Систем Управління'); ?></p>
+            </div>
+            <div id="logoRight">
+                <img src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/images/logoPic2.png" />
+            </div>
+        </div>
+    </div>
+    <div id="headermenu">
+        <div id="wrapper">
+            <ul id="menu">
+                <li><a href="/"><?php echo Localization::getText('Головна'); ?></a></li>
+                <li>
+                    <a href="/page/about"><?php echo Localization::getText('Про інститут'); ?></a>
+                    <ul>
+                        <li><a href="/page/administration"><?php echo Localization::getText('Адміністрація'); ?></a></li>
+                        <li><a href="/albums"><?php echo Localization::getText('Фотогалерея'); ?></a></li>
+                    </ul>
+                </li>
+                <li>
+                   <a href="/page/courses"><?php echo Localization::getText('Напрямки діяльності'); ?></a>
+                    <ul>
+                        <li><a href="/page/courses"><?php echo Localization::getText('Навчальний процес'); ?></a></li>
+                        <li><a href="/page/teachingwork"><?php echo Localization::getText('Навчально-методична робота'); ?></a></li>
+                        <li><a href="/page/research"><?php echo Localization::getText('Наукова робота'); ?></a></li>
+                        <li><a href="/page/educational"><?php echo Localization::getText('Виховна робота'); ?></a></li>
+                        <li><a href="/page/conferences"><?php echo Localization::getText('Конференції'); ?></a></li>
+                    </ul>
+                </li>
+                <li><a href="/page/departments"><?php echo Localization::getText('Кафедри'); ?></a></li>
+                <li>
+                    <a href="/page/entrance"><?php echo Localization::getText('Абітурієнту'); ?></a>
+                    <ul>
+                        <li><a href="/page/ouralumni"><?php echo Localization::getText('Наші випускники'); ?></a></li>
+                        <li><a href="/page/fieldsofstudy"><?php echo Localization::getText('Напрями підготовки та спеціальності'); ?></a></li>
+                        <li>
+                            <a href="http://www.vntu.edu.ua/index.php?option=com_content&view=article&id=124&Itemid=6&lang=uk" target="_blank">
+                                <?php echo Localization::getText('Правила прийому'); ?>
+                            </a>
+                        </li>                        
+                        <li><a href="/page/smallacademy"><?php echo Localization::getText('Мала академія наук'); ?></a></li>
+                        <li><a href="/page/listofitems"><?php echo Localization::getText('Перелік конкурсних предметів'); ?></a></li>
+                        <li><a href="/page/structureoftraining"><?php echo Localization::getText('Структура навчання'); ?></a></li>
+                        <li><a href="/page/inaeksuinslides"><?php echo Localization::getText('ІнАЕКСУ у слайдах'); ?></a></li>
+                        <li><a href="/page/filmaboutinaeksu"><?php echo Localization::getText('Фільм про ІнАЕКСУ'); ?></a></li>
+                        <li><a href="/page/ourlocation"><?php echo Localization::getText('Наше місцезнаходження'); ?></a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/page/studentachievement"><?php echo Localization::getText('Студенту'); ?></a>
+                    <ul>
+                        <li><a href="/page/schedule"><?php echo Localization::getText('Розклад'); ?></a></li>
+                        <li><a href="/page/studentcouncil"><?php echo Localization::getText('Студентська рада'); ?></a></li>
+                        <li><a href="/page/studentachievement"><?php echo Localization::getText('Студентські досягнення'); ?></a></li>
+                        <li><a href="/page/olympiadksua"><?php echo Localization::getText('Олімпіада «КСУА»'); ?></a></li>
+                        <li><a href="/page/spieosa">SPIE/OSA</a></li>
+                        <li><a href="/page/ntsa">НТСА</a></li>
+                        <li><a href="/page/softwarepro"><?php echo Localization::getText('Програми фахового вступного випробовування'); ?></a></li>
+                    </ul>
+                </li>
+                <li><a href="/page/link"><?php echo Localization::getText('Посилання'); ?></a></li>
+                <?php if(Yii::app()->user->isGuest) : ?>
+                    <li><a href="/site/login"><?php echo Localization::getText('Персональна сторінка'); ?></a></li>
+                <?php endif ?>
+                <?php if(Yii::app()->user->checkAccess('2')) : ?>
+                    <li><a href="/profile"><?php echo Localization::getText('Профіль'); ?></a></li>
+                    <li><a href="/admin" target="_blank"><?php echo Localization::getText('Адмінка'); ?></a></li>
+                    <li><a href="/site/logout"><?php echo Localization::getText('Вихід'); ?></a></li>
+                <?php endif ?>
+                <?php if(Yii::app()->user->checkAccess('1')) : ?>
+                    <li><a href="/admin" target="_blank"><?php echo Localization::getText('Адмінка'); ?></a></li>
+                    <li><a href="/site/logout"><?php echo Localization::getText('Вихід'); ?></a></li>
+                <?php endif ?>
+                <?php if(Yii::app()->user->checkAccess('0')) : ?>
+                    <li><a href="/profile"><?php echo Localization::getText('Профіль'); ?></a></li>
+                    <li><a href="/site/logout"><?php echo Localization::getText('Вихід'); ?></a></li>
+                <?php endif ?>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="mainpage">
+            <?php echo $content; ?>
+        </div>
+        <div id="footerbr"></div>
+    </div>
+</div>
+<div id="footer">
+    <div id="wrapper">
+        <div id="footertext">
+            <a href="http://www.vntu.edu.ua/" target="_blank"><?php echo Localization::getText('Вінницький національний технічний університет'); ?></a>
+            <br>
+            <?php echo Localization::getText('Інститут Автоматики, Електроніки та Комп\'ютерних Систем Управління ©'); ?> <?php echo date('Y'); ?>
+        </div>
+        <div id="counter">
+        <!--LiveInternet counter-->
+            <script type="text/javascript"><!--
+            document.write("<a href='http://www.liveinternet.ru/click' "+
+            "target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+            escape(document.referrer)+((typeof(screen)=="undefined")?"":
+            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+            screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+            ";"+Math.random()+
+            "' alt='' title='LiveInternet: показано число просмотров за 24"+
+            " часа, посетителей за 24 часа и за сегодня' "+
+            "border='0' width='88' height='31'><\/a>")
+            //--></script>
+        <!--/LiveInternet-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

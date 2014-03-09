@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ua" xml:lang="ua" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/app/front/images/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/app/front/css/style.css" type="text/css">
+    <?php Yii::app()->clientScript->registerCoreScript('jquery'); ?>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/fresco/fresco.js"></script>
+    <link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/app/front/css/fresco/fresco.css" />
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/coin-slider.js"></script>
+    <meta name="google-translate-customization" content="623d60a1eaf0e3bf-f9f2d51f02db6e1e-g1cf1510c51a4a71f-13"></meta>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/main.js"></script>
+    <script type="text/javascript" src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/js/libs/jquery.cookie.js"></script>
+</head>
+<body>
+<div id="main">
+    <div id="toppanel">
+        <div id="wrapper">
+            <div id="userpanel">
+            <div id="google_translate_element"></div>
+                <script type="text/javascript">
+                    function googleTranslateElementInit() {
+                      new google.translate.TranslateElement({pageLanguage: 'uk', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+                    }
+                </script>
+                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+            </div>
+        </div>
+    </div>
+    <div id="headerblock">
+        <div id="wrapper">
+            <a href="/"><img src="<?php echo Yii::app()->request->baseUrl; ?>/app/front/images/logo.png" /></a>
+        </div>
+    </div>
+    <div id="headermenu">
+        <div id="wrapper">
+            <ul id="menu">
+                <li><a href="/">Головна</a></li>
+                <li>
+                    <a href="/page/about">Про інститут</a>
+                    <ul>
+                        <li><a href="/page/administration">Адміністрація</a></li>
+                        <li><a href="/albums">Фотогалерея</a></li>
+                    </ul>
+                </li>
+                <li>
+                   <a href="/page/courses">Напрямки діяльності</a>
+                    <ul>
+                        <li><a href="/page/courses">Навчальний процес</a></li>
+                        <li><a href="/page/teachingwork">Навчально-методична робота</a></li>
+                        <li><a href="/page/research">Наукова робота</a></li>
+                        <li><a href="/page/educational">Виховна робота</a></li>
+                        <li><a href="/page/conferences">Конференції</a></li>
+                    </ul>
+                </li>
+                <li><a href="/page/departments">Кафедри</a></li>
+                <li>
+                    <a href="/page/entrance">Абітурієнту</a>
+                    <ul>
+                        <li><a href="/page/ouralumni">Наші випускники</a></li>
+                        <li><a href="/page/fieldsofstudy">Напрями підготовки та спеціальності</a></li>
+                        <li>
+                            <a href="http://www.vntu.edu.ua/index.php?option=com_content&view=article&id=124&Itemid=6&lang=uk" target="_blank">
+                                Правила прийому
+                            </a>
+                        </li>                        
+                        <li><a href="/page/smallacademy">Мала академія наук</a></li>
+                        <li><a href="/page/listofitems">Перелік конкурсних предметів</a></li>
+                        <li><a href="/page/structureoftraining">Структура навчання</a></li>
+                        <li><a href="/page/inaeksuinslides">ІнАЕКСУ у слайдах</a></li>
+                        <li><a href="/page/filmaboutinaeksu">Фільм про ІнАЕКСУ</a></li>
+                        <li><a href="/page/ourlocation">Наше місцезнаходження</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="/page/studentachievement">Студенту</a>
+                    <ul>
+                        <li><a href="/page/schedule">Розклад</a></li>
+                        <li><a href="/page/studentcouncil">Студентська рада</a></li>
+                        <li><a href="/page/studentachievement">Студентські досягнення</a></li>
+                        <li><a href="/page/olympiadksua">Олімпіада «КСУА»</a></li>
+                        <li><a href="/page/spieosa">SPIE/OSA</a></li>
+                        <li><a href="/page/ntsa">НТСА</a></li>
+                        <li><a href="/page/softwarepro">Програми фахового вступного випробовування</a></li>
+                    </ul>
+                </li>
+                <li><a href="/page/link">Посилання</a></li>
+                <?php if(Yii::app()->user->isGuest) : ?>
+                    <li><a href="/site/login">Персональна сторінка</a></li>
+                <?php endif ?>
+                <?php if(Yii::app()->user->checkAccess('2')) : ?>
+                    <li><a href="/profile">Профіль</a></li>
+                    <li><a href="/admin" target="_blank">Адмінка</a></li>
+                    <li><a href="/site/logout">Вихід</a></li>
+                <?php endif ?>
+                <?php if(Yii::app()->user->checkAccess('1')) : ?>
+                    <li><a href="/admin" target="_blank">Адмінка</a></li>
+                    <li><a href="/site/logout">Вихід</a></li>
+                <?php endif ?>
+                <?php if(Yii::app()->user->checkAccess('0')) : ?>
+                    <li><a href="/profile">Профіль</a></li>
+                    <li><a href="/site/logout">Вихід</a></li>
+                <?php endif ?>
+            </ul>
+        </div>
+    </div>
+    <div id="wrapper">
+        <div id="mainpage">
+            <?php echo $content; ?>
+        </div>
+        <div id="footerbr"></div>
+    </div>
+</div>
+<div id="footer">
+    <div id="wrapper">
+        <div id="footertext">
+            <a href="http://www.vntu.edu.ua/" target="_blank">Вінницький національний технічний університет</a>
+            <br>
+            Інститут Автоматики, Електроніки та Комп'ютерних Систем Управління © <?php echo date('Y'); ?>
+        </div>
+        <div id="counter">
+        <!--LiveInternet counter-->
+            <script type="text/javascript"><!--
+            document.write("<a href='http://www.liveinternet.ru/click' "+
+            "target=_blank><img src='//counter.yadro.ru/hit?t14.6;r"+
+            escape(document.referrer)+((typeof(screen)=="undefined")?"":
+            ";s"+screen.width+"*"+screen.height+"*"+(screen.colorDepth?
+            screen.colorDepth:screen.pixelDepth))+";u"+escape(document.URL)+
+            ";"+Math.random()+
+            "' alt='' title='LiveInternet: показано число просмотров за 24"+
+            " часа, посетителей за 24 часа и за сегодня' "+
+            "border='0' width='88' height='31'><\/a>")
+            //--></script>
+        <!--/LiveInternet-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

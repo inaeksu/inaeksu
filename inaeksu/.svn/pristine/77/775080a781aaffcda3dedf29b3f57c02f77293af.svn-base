@@ -1,0 +1,62 @@
+<?php
+class Page extends CActiveRecord
+{
+	public function tableName()
+	{
+		return '{{page}}';
+	}
+
+	public function rules()
+	{
+		return array(
+			array('title, text, surl', 'required'),
+			array('date', 'numerical', 'integerOnly'=>true),
+			array('title, surl', 'length', 'max'=>115),
+			array('id, surl, title, text, date', 'safe', 'on'=>'search'),
+		);
+	}
+
+	public function relations()
+	{
+		return array(
+		);
+	}
+
+	public function attributeLabels()
+	{
+		return array(
+			'id' => 'ID',
+			'title' => 'Название',
+			'text' => 'Текст',
+			'date' => 'Дата',
+			'surl' => 'URL'
+		);
+	}
+
+	public function search()
+	{
+		$criteria=new CDbCriteria;
+
+		$criteria->compare('id',$this->id);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('text',$this->text,true);
+		$criteria->compare('surl',$this->text,true);
+		$criteria->compare('date',$this->date);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+	}
+
+	public function beforeSave()
+	{
+		if($this->isNewRecord)
+			$this->date = time();
+		return parent::beforeSave();
+	}
+	
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+}

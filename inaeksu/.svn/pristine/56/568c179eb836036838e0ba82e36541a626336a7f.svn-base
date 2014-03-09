@@ -1,0 +1,8 @@
+<?php
+class Localization
+{
+	static function getText($text)
+	{
+		return Yii::t('main', $text, null, null, $_COOKIE['lang']);
+	}
+}

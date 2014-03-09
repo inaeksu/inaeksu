@@ -1,0 +1,25 @@
+<?php
+class PageController extends Controller
+{	
+	/**
+	 * Просмотр сраницы
+	 */
+	
+	public function actionPublications()
+	{
+		$this->render('publications');
+	}
+	
+	public function actionIndex($surl){
+		try{
+			$act = 'action'.ucfirst($surl);
+			$this->$act();
+		}catch (Exception $e){
+			$models = Page::model()->find("surl = :surl",array(":surl" => $surl));
+			if (!$models)
+				throw new CHttpException(404);
+			$this->render('index',array('models' => $models));
+		}
+	}
+	
+}
